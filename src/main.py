@@ -1,7 +1,7 @@
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
-from measurements import transform_colors
+from measurements import transform_colors, get_contours
 
 def open_image(name):
     """
@@ -77,7 +77,11 @@ def main():
         display_image(image, "Original input " + image_name)
 
         grayscale_v = transform_colors(image)
-        display_image(grayscale_v, "Grayscale " + image_name)
-        save_image(image_name + "-grayscale", grayscale_v)
+        display_image(grayscale_v[:,:,0], "Grayscale " + image_name)
+        save_image(image_name + "-grayscale", grayscale_v[:,:,0])
+
+        contours_v, _ = get_contours(grayscale_v)
+        display_image(contours_v, "Contours " + image_name)
+        save_image(image_name + "-contours", contours_v)
 
 main()
