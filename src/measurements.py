@@ -1,6 +1,7 @@
 import cv2
 import math
 import numpy as np
+import matplotlib.pyplot as plt
 
 font = cv2.FONT_HERSHEY_SIMPLEX
 
@@ -69,3 +70,26 @@ def get_measurements(img, contours):
         idx += 1
 
     return output_img, areas
+
+def areas_histogram(areas, img_name):
+    """
+    It returns a histogram of the object's area
+
+    Keyword arguments:
+    areas -- the areas of all objects (array)
+    """
+
+    counts, _, _ = plt.hist(areas, [0, 1500, 3000, 4500], color='#0504aa',
+                            alpha=0.7)
+    plt.xlabel("Área")
+    plt.ylabel("Número de objetos")
+    plt.title("Número de objetos por área")
+    plt.grid(axis='y', alpha=0.75)
+
+    print("Classificação dos objetos baseado em suas respectivas áreas:")
+    print("Número de regiões pequenas: %d" % counts[0])
+    print("Número de regiões médias: %d" % counts[1])
+    print("Número de regiões grandes: %d" % counts[2])
+
+    plt.savefig('output/' + img_name + "-histogram" + '.png')
+    plt.show()
