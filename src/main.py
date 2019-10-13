@@ -84,7 +84,7 @@ def main():
         display_image(contours_v, "Contours " + image_name)
         save_image(image_name + "-contours", contours_v)
 
-        labeled_img = get_measurements(image, contours[1:])
+        labeled_img, areas = get_measurements(image, contours[1:])
         display_image(labeled_img, "Labeled " + image_name)
         save_image(image_name + "-labeled", labeled_img)
 
