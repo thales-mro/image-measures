@@ -1,7 +1,7 @@
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
-from measurements import transform_colors, get_contours
+from measurements import transform_colors, get_contours, get_measurements
 
 def open_image(name):
     """
@@ -80,8 +80,12 @@ def main():
         display_image(grayscale_v[:,:,0], "Grayscale " + image_name)
         save_image(image_name + "-grayscale", grayscale_v[:,:,0])
 
-        contours_v, _ = get_contours(grayscale_v)
+        contours_v, contours = get_contours(grayscale_v)
         display_image(contours_v, "Contours " + image_name)
         save_image(image_name + "-contours", contours_v)
+
+        labeled_img = get_measurements(image, contours[1:])
+        display_image(labeled_img, "Labeled " + image_name)
+        save_image(image_name + "-labeled", labeled_img)
 
 main()
