@@ -152,7 +152,7 @@ def get_measures(img, contours):
       offset_x = 10 if idx > 9 else 5
       cv2.putText(output_img, str(idx), (c_x - offset_x, c_y + 5), font, 0.5, (0, 0, 0), 2)
 
-      print("Regiao %2d: area: %6.1f perimetro: %9.5f " % (idx, area, perimeter))
+      print("Region %2d: area: %6.1f perimeter: %9.5f " % (idx, area, perimeter))
       idx += 1
   return output_img, areas
 \end{lstlisting}
@@ -212,7 +212,7 @@ The \textit{src/main.py} file executes the test pipeline. The idea is the follow
 As we have 3 input images, 4 implemented functions, we have 12 images of output, and 6 output text blocks. The output images are stored in the \textbf{output} folder.
 
 \section{Discussion}
-This section is organized in five parts. The first four analyzes the results of each function for all the input images, and the fifth sums up the implementation as a whole.
+This section is organized in four parts, and they analyze the results of each function for all the input images.
 
 \subsection{Transform colors}
 The results of the method for all input images are shown in figure \ref{fig:transf-colors}. As it can be seen, the results are satisfatory, and they can be used for the contour calculation of each object.
@@ -239,7 +239,7 @@ The results of the method for all grayscale images obtained in the previous subs
 \end{figure}
 
 \subsection{Properties of Objects Extraction}
-The figure results of the method for all images and their contours are show in figure \ref{fig:labeled}. As mentioned before, some brightness effect was applied in order to make the label readable. The label is placed in a way to center it related to the centroid position. The text outputs are shown in listing.
+The figure results of the method for all images and their contours are show in figure \ref{fig:labeled}. As mentioned before, some brightness effect was applied in order to make the label readable. The label is placed in a way to center it related to the centroid position. The text outputs are shown in listing \ref{code:out-1-1}, \ref{code:out-1-2} and \ref{code:out-1-3} for images 0, 1 and 2 respectively. As it can be seen, small objects have small area and so on. 
 
 \begin{figure}[]
   \centering
@@ -249,6 +249,132 @@ The figure results of the method for all images and their contours are show in f
   \caption{Properties of Objects Figure Results. a) image-0 b) image-1 c) image-2}
   \label{fig:labeled}
 \end{figure}
+
+\begin{lstlisting}[language=sh, caption={Output for Extracted Properties for Image 0}, label={code:out-1-1}]
+  Region  0: area: 2448.0 perimeter: 195.65685 
+  Region  1: area: 2448.0 perimeter: 195.65685 
+  Region  2: area:  304.0 perimeter:  67.65685 
+  Region  3: area:  304.0 perimeter:  67.65685 
+  Region  4: area: 2399.0 perimeter: 193.65685 
+  Region  5: area:  304.0 perimeter:  67.65685 
+  Region  6: area:  322.0 perimeter:  69.65685 
+  Region  7: area: 2448.0 perimeter: 195.65685 
+  Region  8: area:  322.0 perimeter:  69.65685 
+  Region  9: area:  322.0 perimeter:  69.65685 
+  Region 10: area: 2448.0 perimeter: 195.65685 
+  Region 11: area: 2448.0 perimeter: 195.65685 
+  Region 12: area:  322.0 perimeter:  69.65685 
+  Region 13: area:  304.0 perimeter:  67.65685 
+  Region 14: area: 2399.0 perimeter: 193.65685 
+  Region 15: area: 2448.0 perimeter: 195.65685 
+  Region 16: area:  304.0 perimeter:  67.65685   
+\end{lstlisting}
+
+\begin{lstlisting}[language=sh, caption={Output for Extracted Properties for Image 1}, label={code:out-1-2}]
+  Region  0: area:  880.0 perimeter: 144.08326 
+  Region  1: area:  304.0 perimeter:  67.65685 
+  Region  2: area: 1072.0 perimeter: 124.50967 
+  Region  3: area: 1120.0 perimeter: 131.65685 
+  Region  4: area: 4724.0 perimeter: 256.93607 
+  Region  5: area:  304.0 perimeter:  67.65685 
+  Region  6: area:  849.0 perimeter: 144.91169 
+  Region  7: area:  322.0 perimeter:  82.91169 
+  Region  8: area:  452.0 perimeter:  79.59798 
+  Region  9: area: 1168.0 perimeter: 163.65685 
+  Region 10: area:  322.0 perimeter:  69.65685 
+  Region 11: area: 1631.5 perimeter: 187.92388 
+  Region 12: area:  592.0 perimeter:  99.65685 
+  Region 13: area: 1615.0 perimeter: 161.65685 
+  Region 14: area:  130.0 perimeter:  42.62742 
+  Region 15: area: 1120.0 perimeter: 131.65685 
+  Region 16: area:  304.0 perimeter:  67.65685 
+  Region 17: area:  129.5 perimeter:  42.04163 
+  Region 18: area: 3183.0 perimeter: 225.65685 
+  Region 19: area:  322.0 perimeter:  69.65685 
+  Region 20: area:  880.0 perimeter: 131.65685 
+  Region 21: area:  128.0 perimeter:  43.45584 
+  Region 22: area:  450.0 perimeter:  79.59798 
+  Region 23: area:  337.0 perimeter:  82.08326 
+  Region 24: area: 1647.5 perimeter: 188.75231 
+  Region 25: area: 2480.0 perimeter: 186.99495 
+  Region 26: area: 1423.0 perimeter: 206.08326 
+  Region 27: area:  304.0 perimeter:  67.65685 
+  Region 28: area: 1919.0 perimeter: 257.65685 
+  Region 29: area: 1154.0 perimeter: 133.65685 
+  Region 30: area:  129.5 perimeter:  42.04163 
+  Region 31: area:  322.0 perimeter:  69.65685 
+  Region 32: area:  129.0 perimeter:  43.45584 
+  Region 33: area:  304.0 perimeter:  80.08326 
+  Region 34: area: 1120.0 perimeter: 131.65685 
+  Region 35: area: 1647.0 perimeter: 153.19596 
+  Region 36: area: 1120.0 perimeter: 131.65685 
+  Region 37: area:  848.0 perimeter: 131.65685 
+  Region 38: area:  304.0 perimeter:  67.65685 
+  Region 39: area:  880.0 perimeter: 144.08326 
+  Region 40: area: 1087.5 perimeter: 125.09545 
+  Region 41: area: 1168.0 perimeter: 163.65685 
+  Region 42: area:  304.0 perimeter:  67.65685 
+  Region 43: area:  322.0 perimeter:  82.91169 
+  Region 44: area:  129.0 perimeter:  42.62742 
+  Region 45: area:  878.5 perimeter: 143.49747 
+  Region 46: area: 1088.5 perimeter: 125.92388 
+  Region 47: area: 1087.0 perimeter: 129.65685 
+  Region 48: area: 1640.0 perimeter: 152.36753 
+  Region 49: area:  452.0 perimeter:  79.59798 
+  Region 50: area: 2498.0 perimeter: 197.65685 
+  Region 51: area:  880.0 perimeter: 131.65685 
+  Region 52: area:  322.0 perimeter:  82.91169 
+  Region 53: area:  304.0 perimeter:  80.08326 
+  Region 54: area: 2208.0 perimeter: 195.65685 
+  Region 55: area:  304.0 perimeter:  80.08326 
+  Region 56: area: 1456.0 perimeter: 195.65685 
+  Region 57: area:  322.0 perimeter:  69.65685   
+\end{lstlisting}
+
+\begin{lstlisting}[language=sh, caption={Output for Extracted Properties for Image 2}, label={code:out-1-3}]
+  Region  0: area: 4107.0 perimeter: 319.42135 
+  Region  1: area:  843.5 perimeter: 125.63961 
+  Region  2: area: 3690.5 perimeter: 265.11984 
+  Region  3: area:  584.0 perimeter: 104.91169 
+  Region  4: area:  478.0 perimeter:  94.42641 
+  Region  5: area: 1761.5 perimeter: 179.78174 
+  Region  6: area:  688.5 perimeter: 108.66905 
+  Region  7: area: 4067.0 perimeter: 311.07821 
+  Region  8: area:  716.5 perimeter: 101.98276 
+\end{lstlisting}
+
+\subsection{Histogram of Areas}
+Figure \ref{fig:hist} shows the histograms for all input images, and listing \ref{code:out-2-1}, \ref{code:out-2-2} and \ref{code:out-2-3} the respective outputs as desired. It is possible to analyze that, based on the areas obtained in the previous function, the histogram calculation is able to separate each object in its respective category. 
+
+\begin{figure}[]
+  \centering
+  \includegraphics[width=0.8\hsize]{../output/image-0-histogram.png}
+  \includegraphics[width=0.8\hsize]{../output/image-1-histogram.png}
+  \includegraphics[width=0.8\hsize]{../output/image-2-histogram.png}
+  \caption{Histogram of object areas. a) image-0 b) image-1 c) image-2}
+  \label{fig:hist}
+\end{figure}
+
+\begin{lstlisting}[language=sh, caption={Output for Histogram of Areas for Image 0}, label={code:out-2-1}]
+  Classification of objects based on their respective areas:
+  Number of small regions: 9
+  Number of medium regions: 8
+  Number of big regions: 0
+\end{lstlisting}
+
+\begin{lstlisting}[language=sh, caption={Output for Histogram of Areas for Image 1}, label={code:out-2-2}]
+  Classification of objects based on their respective areas:
+  Number of small regions: 47
+  Number of medium regions: 9
+  Number of big regions: 1  
+\end{lstlisting}
+
+\begin{lstlisting}[language=sh, caption={Output for Histogram of Areas for Image 2}, label={code:out-2-3}]
+  Classification of objects based on their respective areas:
+  Number of small regions: 5
+  Number of medium regions: 1
+  Number of big regions: 3  
+\end{lstlisting}
 
 \section{Conclusion}
 The properties extraction from objects within images was possible thanks to the approaches presented in the academia.

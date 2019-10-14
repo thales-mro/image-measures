@@ -65,7 +65,7 @@ def get_measures(img, contours):
         offset_x = 10 if idx > 9 else 5
         cv2.putText(output_img, str(idx), (c_x - offset_x, c_y + 5), font, 0.5, (0, 0, 0), 2)
 
-        print("Região %2d: área: %6.1f perímetro: %9.5f " % (idx, area, perimeter))
+        print("Region %2d: area: %6.1f perimeter: %9.5f " % (idx, area, perimeter))
         idx += 1
 
     return output_img, areas
@@ -80,15 +80,15 @@ def areas_histogram(areas, img_name):
 
     counts, _, _ = plt.hist(areas, [0, 1500, 3000, 4500], color='#0504aa',
                             alpha=0.7)
-    plt.xlabel("Área")
-    plt.ylabel("Número de objetos")
-    plt.title("Número de objetos por área")
+    plt.xlabel("Area")
+    plt.ylabel("Number of objects")
+    plt.title("Number of objects per area")
     plt.grid(axis='y', alpha=0.75)
 
-    print("Classificação dos objetos baseado em suas respectivas áreas:")
-    print("Número de regiões pequenas: %d" % counts[0])
-    print("Número de regiões médias: %d" % counts[1])
-    print("Número de regiões grandes: %d" % counts[2])
+    print("Classification of objects based on their respective areas:")
+    print("Number of small regions: %d" % counts[0])
+    print("Number of medium regions: %d" % counts[1])
+    print("Number of big regions: %d" % counts[2])
 
     plt.savefig('output/' + img_name + "-histogram" + '.png')
     plt.show()
