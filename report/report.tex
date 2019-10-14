@@ -200,7 +200,7 @@ The \textit{src/main.py} file executes the test pipeline. The idea is the follow
 \end{center}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[]
   \centering
   \fbox{\includegraphics[width=0.3\hsize]{../input/image-0.png}}
   \fbox{\includegraphics[width=0.3\hsize]{../input/image-1.png}}
@@ -212,7 +212,43 @@ The \textit{src/main.py} file executes the test pipeline. The idea is the follow
 As we have 3 input images, 4 implemented functions, we have 12 images of output, and 6 output text blocks. The output images are stored in the \textbf{output} folder.
 
 \section{Discussion}
-This section is organized in three parts. The first part analyses global thresholding methods and their effectiveness. The second part takes into consideration each local thresholding method, varying the window size. The third one does the comparisons between the local thresholding methods.
+This section is organized in five parts. The first four analyzes the results of each function for all the input images, and the fifth sums up the implementation as a whole.
+
+\subsection{Transform colors}
+The results of the method for all input images are shown in figure \ref{fig:transf-colors}. As it can be seen, the results are satisfatory, and they can be used for the contour calculation of each object.
+
+\begin{figure}[]
+  \centering
+  \fbox{\includegraphics[width=0.3\hsize]{../output/image-0-grayscale.png}}
+  \fbox{\includegraphics[width=0.3\hsize]{../output/image-1-grayscale.png}}
+  \fbox{\includegraphics[width=0.2\hsize]{../output/image-2-grayscale.png}}
+  \caption{Transform Colors Results. a) image-0 b) image-1 c) image-2}
+  \label{fig:transf-colors}
+\end{figure}
+
+\subsection{Contours of Objects}
+The results of the method for all grayscale images obtained in the previous subsection are shown in figure \ref{fig:contours}. The painted contours seem to fit the objects in their respective original images, which validates the implementation. The obtained contours can be used in the following function.
+
+\begin{figure}[]
+  \centering
+  \fbox{\includegraphics[width=0.5\hsize]{../output/image-0-contours.png}}
+  \fbox{\includegraphics[width=0.6\hsize]{../output/image-1-contours.png}}
+  \fbox{\includegraphics[width=0.4\hsize]{../output/image-2-contours.png}}
+  \caption{Contours of Objects Results. a) image-0 b) image-1 c) image-2}
+  \label{fig:contours}
+\end{figure}
+
+\subsection{Properties of Objects Extraction}
+The figure results of the method for all images and their contours are show in figure \ref{fig:labeled}. As mentioned before, some brightness effect was applied in order to make the label readable. The label is placed in a way to center it related to the centroid position. The text outputs are shown in listing.
+
+\begin{figure}[]
+  \centering
+  \fbox{\includegraphics[width=0.8\hsize]{../output/image-0-labeled.png}}
+  \fbox{\includegraphics[width=0.8\hsize]{../output/image-1-labeled.png}}
+  \fbox{\includegraphics[width=0.4\hsize]{../output/image-2-labeled.png}}
+  \caption{Properties of Objects Figure Results. a) image-0 b) image-1 c) image-2}
+  \label{fig:labeled}
+\end{figure}
 
 \section{Conclusion}
 The properties extraction from objects within images was possible thanks to the approaches presented in the academia.
