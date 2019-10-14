@@ -65,9 +65,9 @@ def main():
 
     # for inserting other images, add tem to /input folder and list them here
     images = (
-        'i-0',
-        'i-1',
-        'i-2'
+        'image-0',
+        'image-1',
+        'image-2'
     )
 
     for image_name in images:
