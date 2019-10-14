@@ -1,6 +1,5 @@
 import cv2
 import matplotlib.pyplot as plt
-import numpy as np
 from measurements import transform_colors, get_contours, get_measurements, areas_histogram
 
 def open_image(name):
