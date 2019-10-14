@@ -1,6 +1,6 @@
 import cv2
 import matplotlib.pyplot as plt
-from measurements import transform_colors, get_contours, get_measurements, areas_histogram
+from measures import transform_colors, get_contours, get_measures, areas_histogram
 
 def open_image(name):
     """
@@ -83,7 +83,7 @@ def main():
         display_image(contours_v, "Contours " + image_name)
         save_image(image_name + "-contours", contours_v)
 
-        labeled_img, areas = get_measurements(image, contours[1:])
+        labeled_img, areas = get_measures(image, contours[1:])
         display_image(labeled_img, "Labeled " + image_name)
         save_image(image_name + "-labeled", labeled_img)
 

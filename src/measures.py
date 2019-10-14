@@ -33,9 +33,9 @@ def get_contours(img):
     cv2.drawContours(contours_img, contours[1:], -1, (0, 0, 255), 1)
     return contours_img, contours
 
-def get_measurements(img, contours):
+def get_measures(img, contours):
     """
-    It returns measurements related to the image (centroid, perimeter and
+    It returns measures related to the image (centroid, perimeter and
     area), with numbers identifying the respective objects in the output
     image, and also the area of the objects
 
