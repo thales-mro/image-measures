@@ -55,13 +55,12 @@ def save_histogram(hist, name):
 
 def main():
     """
-    Entrypoint for the code of project 02 MO443/2s2019
+    Entrypoint for the code of project 03 MO443/2s2019
 
-    For every input image, it creates thresholded images with global and
-    local methods, for different global thresholds and different window
-    sizes for local methods
+    For every input image, it returns its grayscale version, object
+    contours, measurements and histogram of object areas
     """
-
+ 
     # for inserting other images, add tem to /input folder and list them here
     images = (
         'image-0',
